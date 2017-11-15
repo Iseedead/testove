@@ -52,7 +52,7 @@
     },
     methods: {
       getNext() {
-        if (this.selectedCountry !== 'Страна' && this.selectedCity !== 'Город') {
+        if (this.selectedCountry !== 'Страна' && this.selectedCity !== 'Выберите сначала страну') {
           this.information['country'] = this.selectedCountry;
           this.information['city'] = this.selectedCity;
           this.$emit('getNext', this.information);
