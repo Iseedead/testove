@@ -1,21 +1,17 @@
-# testovoelun
+# Test task
 
-> Testovoe
+### Requisites
+- node
+- npm
 
-## Build Setup
-
+### Run
+Install dependencies
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+$ npm install
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Start
+``` bash
+$ npm run start
+```
+App will run on localhost:8080 
+(can be overwritten by process.env.HOST, if port is in use, a free one will be determined)
