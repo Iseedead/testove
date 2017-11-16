@@ -11,29 +11,33 @@
     </div>
     <StepOne
       v-if="active === 1"
+      :userInfo="userInfo"
       @getNext="getSecond"
     >
     </StepOne>
     <StepTwo
       v-else-if="active === 2"
+      :userInfo="userInfo"
       @getNext="getThird"
       @getPrev="getPrev"
     >
     </StepTwo>
     <StepThree
       v-else-if="active === 3"
+      :userInfo="userInfo"
       @getNext="getForth"
       @getPrev="getPrev"
     >
     </StepThree>
     <StepFour
       v-else-if="active === 4"
+      :userInfo="userInfo"
       @getNext="getSummary"
       @getPrev="getPrev"
     ></StepFour>
     <TheEnd
       v-else-if="active === 'summary'"
-      :user="user"
+      :userInfo="userInfo"
       @getNext="andAgain"
     >
     </TheEnd>
@@ -54,7 +58,17 @@
     },
     data() {
       return {
-        user: {},
+        userInfo: {
+          name: '',
+          mail: '',
+          country: 'Страна',
+          city: 'Выберите сначала страну',
+          image: '',
+          Facebook: '',
+          Twitter: '',
+          Вконтакте: '',
+          Одноклассники: ''
+        },
         active: 1,
         steps: [
           {id: 1, style: 'step active'},
@@ -76,6 +90,7 @@
       },
       getPrev() {
         this.active = this.active - 1;
+        this.$root.$emit('back', this.userInfo);
       },
       getSecond(data) {
         this.steps.forEach(step => {
@@ -88,7 +103,7 @@
         this.active = 2;
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
-            this.user[key] = data[key];
+            this.userInfo[key] = data[key];
           }
         }
       },
@@ -103,7 +118,7 @@
         this.active = 3;
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
-            this.user[key] = data[key];
+            this.userInfo[key] = data[key];
           }
         }
       },
@@ -118,7 +133,7 @@
         this.active = 4;
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
-            this.user[key] = data[key];
+            this.userInfo[key] = data[key];
           }
         }
       },
@@ -126,12 +141,22 @@
         this.active = 'summary';
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
-            this.user[key] = data[key];
+            this.userInfo[key] = data[key];
           }
         }
       },
       andAgain() {
-        this.user = {};
+        this.userInfo = {
+          name: '',
+          mail: '',
+          country: 'Страна',
+          city: 'Выберите сначала страну',
+          image: '',
+          Facebook: '',
+          Twitter: '',
+          Вконтакте: '',
+          Одноклассники: ''
+        };
         this.active = 1;
         this.steps.forEach(step => {
           if (step.id === 1) {

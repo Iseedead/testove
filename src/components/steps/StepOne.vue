@@ -5,6 +5,7 @@
       v-for="formable in formables"
       :key="formable.id"
       :formable="formable"
+      :userInfo="userInfo"
     >
     </Inputable>
     <Btn
@@ -25,13 +26,16 @@
     components: {
       Btn, Inputable
     },
+    props: [
+      'userInfo'
+    ],
     data() {
       return {
         information: {},
         label: '1. Введите имя и е-mail',
         formables: [
           {
-            value: '',
+            value: this.userInfo.name,
             title: 'name',
             type: 'text',
             placeholder: 'Имя',
@@ -40,7 +44,7 @@
             regex: '^[a-zA-Zа-яА-Я\\s]+$'
           },
           {
-            value: '',
+            value: this.userInfo.mail,
             title: 'mail',
             type: 'text',
             placeholder: 'E-mail',

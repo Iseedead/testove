@@ -39,6 +39,9 @@
     components: {
       Btn
     },
+    props: [
+      'userInfo'
+    ],
     data() {
       return {
         information: {},
@@ -46,22 +49,26 @@
         medias: [
           {
             media: 'Facebook',
-            isChecked: false,
+            value: this.userInfo.Facebook,
+            isChecked: this.userInfo.Facebook !== '',
             valid: ''
           },
           {
             media: 'Вконтакте',
-            isChecked: false,
+            value: this.userInfo.Вконтакте,
+            isChecked: this.userInfo.Вконтакте !== '',
             valid: ''
           },
           {
             media: 'Twitter',
-            isChecked: false,
+            value: this.userInfo.Twitter,
+            isChecked: this.userInfo.Twitter !== '',
             valid: ''
           },
           {
             media: 'Одноклассники',
-            isChecked: false,
+            value: this.userInfo.Одноклассники,
+            isChecked: this.userInfo.Одноклассники !== '',
             valid: ''
           }
         ],

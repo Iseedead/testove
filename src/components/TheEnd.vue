@@ -2,23 +2,23 @@
   <div class="content">
     <div class="info">
       <div class="name">
-        <span>{{ user.name }}</span>
+        <span>{{ userInfo.name }}</span>
       </div>
       <div class="mail">
-        <span>{{ user.mail }}</span>
+        <span>{{ userInfo.mail }}</span>
       </div>
       <div class="address">
-        <span>{{ user.city }}, {{ user.country }}</span>
+        <span>{{ userInfo.city }}, {{ userInfo.country }}</span>
       </div>
       <div class="media">
-        <span v-if="user.hasOwnProperty('Facebook')"><a>Facebook: </a>{{ user.Facebook }}</span>
-        <span v-if="user.hasOwnProperty('Twitter')"><a>Twitter: </a>{{ user.Twitter }}</span>
-        <span v-if="user.hasOwnProperty('Вконтакте')"><a>Вконтакте: </a>{{ user.Вконтакте }}</span>
-        <span v-if="user.hasOwnProperty('Одноклассники')"><a>Одноклассники: </a>{{ user.Одноклассники }}</span>
+        <span v-if="userInfo.Facebook !== ''"><a>Facebook: </a>{{ userInfo.Facebook }}</span>
+        <span v-if="userInfo.Twitter !== ''"><a>Twitter: </a>{{ userInfo.Twitter }}</span>
+        <span v-if="userInfo.Вконтакте !== ''"><a>Вконтакте: </a>{{ userInfo.Вконтакте }}</span>
+        <span v-if="userInfo.Одноклассники !== ''"><a>Одноклассники: </a>{{ userInfo.Одноклассники }}</span>
       </div>
     </div>
     <div class="avatar">
-      <img :src="user.image" width="200px" height="195px"/>
+      <img :src="userInfo.image" width="200px" height="195px"/>
     </div>
     <Btn
       v-for="btn in btns"
@@ -38,7 +38,7 @@
       Btn
     },
     props: [
-      'user'
+      'userInfo'
     ],
     data() {
       return {

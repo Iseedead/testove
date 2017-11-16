@@ -23,6 +23,9 @@
     components: {
       Btn
     },
+    props: [
+      'userInfo'
+    ],
     data() {
       return {
         label: '4. Выберите любимого котика',

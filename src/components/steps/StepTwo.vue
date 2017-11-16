@@ -32,12 +32,15 @@
     components: {
       Btn
     },
+    props: [
+      'userInfo'
+    ],
     data() {
       return {
         information: {},
         label: '2. Выберите страну и город',
-        selectedCountry: 'Страна',
-        selectedCity: 'Выберите сначала страну',
+        selectedCountry: this.userInfo.country,
+        selectedCity: this.userInfo.city,
         selectClass: 'select',
         countries: [],
         preCities: {},
