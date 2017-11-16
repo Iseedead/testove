@@ -25,7 +25,7 @@
 <style scoped>
   .inputWrapper span {
     display: inline-block;
-    margin: 25px 0 0 -5px;
+    margin: 25px 0 0 0;
     color: #ff0000;
   }
 

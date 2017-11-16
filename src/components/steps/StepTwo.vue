@@ -3,12 +3,12 @@
     <span>{{ label }}</span>
     <div class="selectWrapper">
       <select v-model="selectedCountry" :class="selectClass" @click="pushCities">
-        <option disabled selected>Страна</option>
+        <option disabled selected>{{ selectedCountry }}</option>
         <option v-for="country in countries"> {{ country.value }}</option>
       </select>
-      <span v-if="selectClass === 'select notValid'"> — Выберите что-то</span>
+      <span v-if="selectClass === 'select notValid'">  — Выберите что-то</span>
       <select v-model="selectedCity" :class="selectClass">
-        <option disabled selected>Выберите сначала страну</option>
+        <option disabled selected>{{ selectedCity }}</option>
         <option v-for="city in cities"> {{ city.value }}</option>
       </select>
       <span v-if="selectClass === 'select notValid'"> — Выберите что-то</span>
@@ -69,11 +69,14 @@
             if (this.preCities.hasOwnProperty(key)) {
               if (this.preCities[key].country === this.parseCountry(this.selectedCountry)) {
                 this.cities.push({value: this.preCities[key].name});
-              } else {
-
               }
             }
           }
+        if (this.cities.length === 0) {
+          this.selectedCity = 'Страна не поддерживается';
+        } else {
+          this.selectedCity = 'Выберите город';
+        }
       },
       parseCountry(country) {
         switch (country) {
@@ -151,7 +154,7 @@
   }
 
   .content .selectWrapper span {
-    margin: -35px 0 0 293px;
+    margin: -35px 0 0 300px;
     color: #ff0000;
   }
 
