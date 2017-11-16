@@ -172,7 +172,7 @@
 
 <style scoped>
   .container {
-    margin: 10% 0 0 29%;;
+    margin: 10% 0 0 38%;
     animation-name: fadeIn;
     animation-duration: 1s;
   }

@@ -66,6 +66,7 @@
     background: #ffffff;
     display: inline-flex;
     border-radius: 2px;
+    margin: 35px 0 0 -160px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 

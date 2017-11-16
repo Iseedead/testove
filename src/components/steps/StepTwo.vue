@@ -55,7 +55,10 @@
     },
     methods: {
       getNext() {
-        if (this.selectedCountry !== 'Страна' && this.selectedCity !== 'Выберите сначала страну') {
+        if (this.selectedCountry !== 'Страна'
+          && this.selectedCity !== 'Выберите сначала страну'
+          && this.selectedCity !== 'Страна не поддерживается'
+          && this.selectedCity !== 'Выберите город') {
           this.information['country'] = this.selectedCountry;
           this.information['city'] = this.selectedCity;
           this.$emit('getNext', this.information);
@@ -128,6 +131,7 @@
 
   .select {
     font-family: "Open Sans", sans-serif;
+    font-size: 15px;
     padding: 12px;
     margin-top: 16px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -157,7 +161,7 @@
   }
 
   .content .selectWrapper span {
-    margin: -35px 0 0 300px;
+    margin: -35px 0 0 335px;
     color: #ff0000;
   }
 

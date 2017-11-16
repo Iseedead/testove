@@ -1,8 +1,10 @@
 <template>
   <div class="content">
     <span>{{ label }}</span>
-    <div class="imageWrapper" v-for="image in images" @click="selectImage(image)">
-      <img :class="image.style" :src="image.path" width="150px" height="150px"/>
+    <div class="iWrap">
+      <div class="images" v-for="image in images" @click="selectImage(image)">
+        <img :class="image.style" :src="image.path" width="150px" height="150px"/>
+      </div>
     </div>
     <span v-if="catValid" class="catError">{{ catError }}</span>
     <Btn
@@ -93,16 +95,20 @@
   }
 
   .content span {
-    margin-bottom: 24px;
+    margin: 24px 0 24px 0;
     display: block;
   }
 
   .content .buttonWrapper {
     display: block;
-    margin: 25px 0 0 0;
+    margin: 25px 0 0 -50px;
   }
 
-  .imageWrapper {
+  .iWrap {
+    margin: 0 0 0 -230px;
+  }
+
+  .images {
     display: inline-block;
     margin: -1px 16px 0 0;
     animation-name: fadeIn;
@@ -121,6 +127,6 @@
 
   span.catError {
     color: #ff0000;
-    margin: 16px 0;
+    margin: 16px 0 0 -230px;
   }
 </style>

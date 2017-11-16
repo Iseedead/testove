@@ -35,6 +35,7 @@
 
   input[type="text"] {
     font-family: "Open Sans", sans-serif;
+    font-size: 15px;
     padding: 12px;
     margin-top: 16px;
     border: 0;
